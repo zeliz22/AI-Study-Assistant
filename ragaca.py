@@ -1,1 +1,0 @@
-#ragaca davwere dasacommiteblad
