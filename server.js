@@ -17,16 +17,16 @@ const groq = new Groq({
 
 app.post("/ask", async (req, res) => {
 
-  const { question } = req.body;
+  const { messages } = req.body;
 
   try {
+    // ensure we always send a system message at the front
+    const systemMessage = { role: "system", content: "You are a helpful study assistant." };
+    const allMessages = [systemMessage].concat(messages || []);
 
     const response = await groq.chat.completions.create({
       model: "llama-3.1-8b-instant",
-      messages: [
-        { role: "system", content: "You are a helpful study assistant." },
-        { role: "user", content: question }
-      ]
+      messages: allMessages
     });
 
     res.json({

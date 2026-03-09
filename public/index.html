@@ -11,11 +11,14 @@
 <div class="container">
   <h1>AI Study Assistant</h1>
 
-<textarea id="question" rows="6" cols="60"></textarea>
+<textarea id="question" rows="6" cols="60" placeholder="Type your question here..."></textarea>
 
 <br><br>
 
-<button onclick="ask()">Ask AI</button>
+<div class="buttons">
+  <button onclick="ask(true)">Ask AI (new chat)</button>
+  <button onclick="ask(false)">Ask AI (continue)</button>
+</div>
 
 <h2>Answer:</h2>
 
